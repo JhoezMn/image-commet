@@ -1,0 +1,60 @@
+<div class="card mt-2">
+
+  <div class="card-header d-flex justify-content-between align-items-center bg-dark">
+    <h3 class="card-title text-white">
+      <i class="far fa-image"></i> Upload an Image
+    </h3>
+    <button class="btn btn-info " id="btn-toggle-comment">
+      <i class="fa fa-comments-o"></i> Add
+    </button>
+  </div>
+
+  <div class="card-body">
+    <blockquote id="post-comment">
+      <form action="/images" method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-5">
+            <div class="form-group">
+              <div class="input-group">
+                  <div class="uploader" onclick="$('#filePhoto').click()">                         
+                      <img src="http://fakeimg.pl/365x365/" alt="image" class="img-responsive"  />
+                      <input type="file" name="image" id="filePhoto" class="custom-file-input" accept="image/jpeg" aria-describedby="inputGroupFileAddon" required/> 
+                  </div>
+              </div>
+            </div>
+          </div>  
+          <div class="col-7">
+            <div class="form-group">
+              <input type="text" name="title" class="form-control" placeholder="Title for the Image" required>
+            </div>
+            <div class="form-group">
+              <textarea name="description" rows="7" class="form-control" placeholder="Deescription for the Image" required></textarea>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-success">
+                <i class="fa fa-upload"></i> Upload Image
+              </button>
+            </div>
+          </div>          
+        </div>
+      </form>
+    </blockquote>
+  </div>
+</div>
+
+<div class="card mt-2">
+  <div class="card-header bg-dark text-white">
+    <h3><i class="far fa-images"></i> Recent Uploads</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      {{#each images}}
+      <div class="col-md-4 text-center">
+        <a href="/images/{{ uniqueId  }}">
+          <img src="/public/upload/{{filename}}" alt="{{title}}" class="w-100 h-100 img-thumbnail">
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

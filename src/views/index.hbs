@@ -1,0 +1,32 @@
+<style>
+    .swiper-container {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+    }
+</style>
+<main role="main" class="inner cover bg-dark text-white " >
+    <div class="swiper-container">
+        <div class="swiper-wrapper">     
+            {{#each images}}
+                <img src="/public/upload/{{filename}}" alt="{{title}}" class="card shadow swiper-slide">
+            {{/each}}       
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="container text-center my-auto ">                        
+        <div class="container p-2">
+            <h1 class="mb-1">GALERIA DE IMAGENES</h1>
+            <h3 class="mb-5">Comenta y comparte tus imagenes</h3>
+            <a class="btn btn-primary btn-lg" href="/signin"> Empecemos </a>
+        </div> 
+    </div>     
+</main>
+

@@ -1,0 +1,87 @@
+<div class="card mt-2">
+
+  <div class="card-header bg-dark">
+    <h3 class="card-title text-white">
+      <i class="fas fa-user-edit"></i> My account
+    </h3>    
+  </div>
+
+  <div class="card-body">    
+    <form action="/update" method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-8">
+          <div class="form-group">
+            <input type="text" name="username" class="form-control" placeholder="Username" value="{{user.username}}" required autofocus>
+          </div>        
+          <div class="form-group">
+            <input type="text" name="fullname" class="form-control" placeholder="Full names" value="{{user.fullname}}" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Email" value="{{user.email}}" required>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success">
+              <i class="fas fa-pen"></i> to update
+            </button>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <img src="http://gravatar.com/avatar/{{user.gravatar}}?d=monsterid&s=200" />
+          </div>
+        </div>
+      </div>  
+    </form>    
+  </div>
+</div>
+
+<div class="card mt-2">
+
+  <div class="card-header d-flex justify-content-between align-items-center bg-dark">
+    <h3 class="card-title text-white">
+      <i class="fas fa-lock"></i> Change my password
+    </h3>
+    <button class="btn btn-info " id="btn-toggle-comment">
+      <i class="fas fa-lock-open"></i> Change
+    </button>
+  </div>
+
+  <div class="card-body">
+    <blockquote id="post-comment">
+      <form action="/password" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <input type="password" name="old" class="form-control" placeholder="Current password" required>
+        </div>        
+        <div class="form-group">
+          <input type="password" name="new" class="form-control" placeholder="New password" required>
+        </div>
+        <div class="form-group">
+          <input type="password" name="confirm" class="form-control" placeholder="Confirm password" required>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success">
+            <i class="fas fa-key"></i> to update
+          </button>
+        </div>        
+      </form>
+    </blockquote>
+  </div>
+</div>
+
+
+<div class="card mt-2">
+  <div class="card-header bg-dark text-white">
+    <h3><i class="far fa-images"></i> My images</h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      {{#each images}}
+      <div class="col-md-4 text-center">
+        <a href="/images_user/{{ uniqueId  }}">
+          <img src="/public/upload/{{filename}}" alt="{{title}}" class="w-100 h-100 img-thumbnail">
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

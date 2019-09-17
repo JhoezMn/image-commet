@@ -1,0 +1,35 @@
+{{#if message}}
+<div class="container p-3" id="message">        
+    <div class="row">
+        <div class="col-4 mx-auto">  
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="close" onclick="quitar()" data-dismiss="alert" aria-label="Close" >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+        </div>               
+    </div>           
+</div>    
+{{/if}}
+
+{{#if success}}
+<div class="container p-3" id="message">        
+    <div class="row">
+        <div class="col-4 mx-auto"> 
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{success}}
+                <button type="button" class="close" onclick="quitar()" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+        </div>               
+    </div>
+</div>    
+{{/if}}
+
+<script>
+    function quitar() {    
+    document.getElementById("message").style.display="none";
+  }
+</script>
